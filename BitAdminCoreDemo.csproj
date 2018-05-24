@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp2.0\BitAdminCore.xml</DocumentationFile>
+    <NoWarn>1701;1702;1705;1591;1573;1572;1570</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\OpenSdk\**" />
+    <Compile Remove="Helpers\IOT\**" />
+    <Content Remove="Controllers\OpenSdk\**" />
+    <Content Remove="Helpers\IOT\**" />
+    <EmbeddedResource Remove="Controllers\OpenSdk\**" />
+    <EmbeddedResource Remove="Helpers\IOT\**" />
+    <None Remove="Controllers\OpenSdk\**" />
+    <None Remove="Helpers\IOT\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BitAdminCore.ALL" Version="1.0.5" />
+    <PackageReference Include="BuildBundlerMinifier" Version="2.8.391" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.7" />
+    <PackageReference Include="TimedJob" Version="2.0.0" />
+    <PackageReference Include="UEditorForNetCore2" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

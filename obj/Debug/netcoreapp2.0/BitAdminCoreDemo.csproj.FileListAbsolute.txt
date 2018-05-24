@@ -1,0 +1,11 @@
+D:\ProjectCode\C#Test\BitAdminCoreDemo\bin\Debug\netcoreapp2.0\BitAdminCore.xml
+D:\ProjectCode\C#Test\BitAdminCoreDemo\bin\Debug\netcoreapp2.0\BitAdminCoreDemo.deps.json
+D:\ProjectCode\C#Test\BitAdminCoreDemo\bin\Debug\netcoreapp2.0\BitAdminCoreDemo.runtimeconfig.json
+D:\ProjectCode\C#Test\BitAdminCoreDemo\bin\Debug\netcoreapp2.0\BitAdminCoreDemo.runtimeconfig.dev.json
+D:\ProjectCode\C#Test\BitAdminCoreDemo\bin\Debug\netcoreapp2.0\BitAdminCoreDemo.dll
+D:\ProjectCode\C#Test\BitAdminCoreDemo\bin\Debug\netcoreapp2.0\BitAdminCoreDemo.pdb
+D:\ProjectCode\C#Test\BitAdminCoreDemo\obj\Debug\netcoreapp2.0\BitAdminCoreDemo.csproj.CoreCompileInputs.cache
+D:\ProjectCode\C#Test\BitAdminCoreDemo\obj\Debug\netcoreapp2.0\BitAdminCoreDemo.AssemblyInfoInputs.cache
+D:\ProjectCode\C#Test\BitAdminCoreDemo\obj\Debug\netcoreapp2.0\BitAdminCoreDemo.AssemblyInfo.cs
+D:\ProjectCode\C#Test\BitAdminCoreDemo\obj\Debug\netcoreapp2.0\BitAdminCoreDemo.dll
+D:\ProjectCode\C#Test\BitAdminCoreDemo\obj\Debug\netcoreapp2.0\BitAdminCoreDemo.pdb

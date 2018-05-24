@@ -1,0 +1,163 @@
+﻿CREATE TABLE [dbo].[FlowBills](
+	[Id] [uniqueidentifier] NOT NULL,
+	[ParentId] [uniqueidentifier] NULL,
+	[MainId] [uniqueidentifier] NULL,
+	[StepId] [uniqueidentifier] NULL,
+	[BillsType] [nvarchar](32) NULL,
+	[WorkOrderName] [nvarchar](32) NULL,
+	[BillsCode] [nvarchar](20) NULL,
+	[Sort] [int] NULL,
+	[State] [nvarchar](32) NULL,
+	[SubmitUser] [uniqueidentifier] NULL,
+	[CreateTime] [datetime] NOT NULL,
+	[UpdateTime] [datetime] NULL,
+	[Description] [nvarchar](200) NULL,
+	[Version] [int] NULL,
+ CONSTRAINT [PK_FlowBills] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[FlowBillsRecord](
+	[Id] [uniqueidentifier] NOT NULL,
+	[BillsId] [uniqueidentifier] NOT NULL,
+	[PrevStepId] [uniqueidentifier] NULL,
+	[NextStepId] [uniqueidentifier] NULL,
+	[UserId] [uniqueidentifier] NULL,
+	[PrevBillsRecordId] [uniqueidentifier] NULL,
+	[AuditDate] [datetime] NULL,
+	[Sort] [int] NOT NULL,
+	[Condition] [int] NOT NULL,
+	[State] [nvarchar](32) NULL,
+	[StartTime] [datetime] NOT NULL,
+	[EndTime] [datetime] NULL,
+	[Choice] [nvarchar](20) NULL,
+	[Type] [int] NOT NULL,
+	[Description] [nvarchar](200) NULL,
+	[Batch] [int] NULL,
+ CONSTRAINT [PK_FlowBillsRecord] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[SysUser](
+	[UserId] [uniqueidentifier] NOT NULL,
+	[DepartmentId] [uniqueidentifier] NULL,
+	[UserCode] [nvarchar](32) NULL,
+	[UserName] [nvarchar](32) NULL,
+	[UserPassword] [nvarchar](128) NULL,
+	[IdCard] [nvarchar](32) NULL,
+	[Mobile] [nvarchar](32) NULL,
+	[Email] [nvarchar](128) NULL,
+	[Post] [nvarchar](32) NULL,
+	[Gender] [nvarchar](32) NULL,
+	[Birthday] [datetime] NULL,
+	[ExtendId] [nvarchar](64) NULL,
+	[UserStatus] [nvarchar](32) NULL,
+	[OrderNo] [int] NULL,
+	[CreateBy] [uniqueidentifier] NULL,
+	[CreateTime] [datetime] NULL,
+	[UpdateBy] [uniqueidentifier] NULL,
+	[UpdateTime] [datetime] NULL,
+ CONSTRAINT [PK_SysUser] PRIMARY KEY CLUSTERED 
+(
+	[UserId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[FlowBillsRecordUser](
+	[Id] [uniqueidentifier] NOT NULL,
+	[StepId] [uniqueidentifier] NULL,
+	[BillsRecordId] [uniqueidentifier] NOT NULL,
+	[BillsRecordOutId] [uniqueidentifier] NULL,
+	[UserId] [uniqueidentifier] NULL,
+	[CreateTime] [datetime] NULL,
+	[StartTime] [datetime] NULL,
+	[EndTime] [datetime] NULL,
+	[Type] [int] NOT NULL,
+	[State] [nvarchar](32) NULL,
+	[Condition] [nvarchar](32) NULL,
+	[Choice] [nvarchar](32) NULL,
+	[Opinion] [nvarchar](32) NULL,
+	[DisplayState] [nvarchar](32) NULL,
+	[RunTime] [datetime] NULL,
+ CONSTRAINT [PK_FlowBillsRecordUser] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[FlowMain](
+	[Id] [uniqueidentifier] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](50) NULL,
+	[Description] [nvarchar](200) NULL,
+ CONSTRAINT [PK_FlowMain] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[FlowOrderCodes](
+	[Id] int NOT NULL,
+	[Pinyin] [nvarchar](50) NULL,
+	[Day] [nvarchar](50) NULL,
+	[Index] [int] NULL,
+	[Code] [nvarchar](50) NULL,
+ CONSTRAINT [PK_FlowOrderCodes] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[FlowStep](
+	[Id] [uniqueidentifier] NOT NULL,
+	[MainId] [uniqueidentifier] NULL,
+	[StepName] [nvarchar](32) NULL,
+	[StepStatus] [int] NULL,
+	[Agency] [nvarchar](50) NULL,
+	[Circularize] [nvarchar](50) NULL,
+	[RunMode] [nvarchar](20) NULL,
+	[LinkCode] [nvarchar](20) NULL,
+	[ShowTabIndex] [nvarchar](20) NULL,
+	[ReminderTimeout] [bigint] NULL,
+	[AuditNorm] [nvarchar](50) NULL,
+	[AuditId] [nvarchar](50) NULL,
+	[AuditNormRead] [nvarchar](50) NULL,
+	[AuditIdRead] [nvarchar](50) NULL,
+	[SmsTemplateToDo] [nvarchar](50) NULL,
+	[SmsTemplateRead] [nvarchar](50) NULL,
+	[Description] [nvarchar](200) NULL,
+	[Style] [nvarchar](50) NULL,
+ CONSTRAINT [PK_FlowStep] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[FlowStepPath](
+	[Id] [uniqueidentifier] NOT NULL,
+	[MainId] [uniqueidentifier] NULL,
+	[StartStepId] [uniqueidentifier] NULL,
+	[StopStepId] [uniqueidentifier] NULL,
+	[Nikename] [nvarchar](32) NULL,
+	[Condition] [int] NULL,
+	[Expression] [nvarchar](50) NULL,
+	[Description] [nvarchar](200) NULL,
+ CONSTRAINT [PK_FlowStepPath] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+
